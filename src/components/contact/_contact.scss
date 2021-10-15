@@ -1,0 +1,106 @@
+.contact {
+    height: 100vh;
+    width: 100%;
+    padding: 2rem;
+    background: url(/dist/images/vlada-tanja.jpg) top center/cover no-repeat;
+    display: grid;
+    grid-template-columns:1fr;
+    grid-gap: 1rem;
+    justify-content: center;
+    align-items: end;
+
+    @include breakpoint-up(medium){
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+address {
+    margin-top: 3rem;
+
+    @include breakpoint-up(medium){
+        justify-self: center;
+        padding-bottom: 2rem;
+    }
+}
+
+.contact-details {
+    display: flex;
+
+    .contact-icon {
+        padding: 1rem;
+        align-self: center;
+        
+        .icon {
+            color: $white;
+            font-size: 2rem;
+            filter: drop-shadow(.1rem .1rem .1rem black);
+
+            @include breakpoint-up(large){
+                font-size: 3rem;
+                margin-right: 1rem;
+            }
+        }
+    }
+
+    .contact-text {
+        line-height: 1.5;
+        color: $white;
+        margin-top: 1rem;
+        text-shadow: $textShadow;
+
+        @include breakpoint-up(large){
+            font-size: 1.5rem;
+        }
+    }
+}
+
+.contact-form {
+    margin: 0 auto;
+    border: .1rem solid #303030;
+    border-radius: .5rem;
+    box-shadow: .25rem .25rem .5rem black;
+    width: 20rem;
+
+    @include breakpoint-up(large){
+        width: 30rem;
+    }
+}
+.submit-form {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+
+    & input {
+        margin: .4rem 0;
+        padding: .4rem;
+        border: none;
+        font-size: 1rem;
+    }
+
+    & TextArea {
+        font-size: 1.1rem;
+        padding: .5rem;
+    }
+
+    & .submit-btn {
+        display: inline-block;
+        margin: .5rem 0;
+        padding: .5rem;
+        font-size: .8rem;
+        font-weight: bold;
+        box-shadow: $boxShadow;
+    }
+}
+
+footer {
+    background: $mainBackground;
+    padding: .5rem;
+    text-align: center;
+    margin: 0 auto;
+
+    & p {
+        font-size: .8rem;
+        text-shadow: $textShadow;
+        color: $white;
+    }
+}

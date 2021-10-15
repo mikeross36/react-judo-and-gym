@@ -1,0 +1,112 @@
+.product-wrapper {
+    width: 100%;
+    max-width: 20rem;
+    margin: 0 auto; 
+    text-align: center;
+    position: relative;
+
+    @include breakpoint-up(medium){
+        width: 90%;
+    }
+}
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0;
+    justify-content: center;
+    align-items: center;
+    background: #eeeded;
+    transition: all ease-in-out 0.3s;
+    cursor: pointer;
+    position: relative;
+
+    @include breakpoint-up(medium){
+        box-shadow: $boxShadow;
+    }
+
+    & img {
+        height: 12.5rem;
+        width: 11rem; 
+        filter: drop-shadow($textShadow);
+    }
+}
+
+.card-body {
+    padding: 1rem 0;
+    margin-top: 1rem;
+    text-align: center;
+
+    .product-title {
+        font-size: 1rem;
+        font-weight: 700;
+    }
+
+    .product-price {
+        font-size: .8rem;
+        font-weight: 700;
+        margin: 5px;
+        background: #bee5d3;
+        padding: 3px 9px;
+    }
+}
+
+.go-to-cart {
+    padding: .8rem 1rem;
+    border-radius: .3rem;
+    font-size: .7rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: $mainBackground;
+    color: $white;
+    border: transparent;
+    box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    transition: all .3s ease-in-out;
+    align-self: center;
+    margin-top: 1rem;
+    cursor: pointer;
+
+    &:hover {
+        font-weight: bold;
+        background: $btnHover;
+    }
+}
+
+.card-overlay {
+    position: absolute;
+    height: 87%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    transition: all 0.5s ease-in-out;
+    z-index: 10;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+
+    .add-to-cart {
+        .add-icon {
+            font-size: 2.5rem;
+            color: $white;    
+            filter: drop-shadow($boxShadow);
+            
+        }
+        .add-title {
+            font-size: .7rem;
+            color: $white;
+            text-transform: uppercase; 
+            font-weight: bolder;
+            text-shadow: $textShadow;
+        }
+
+        &:hover .add-icon {
+            color: $lightGreen;
+        } 
+
+        &:hover .add-title {
+            color: $lightGreen;
+        } 
+    }
+}

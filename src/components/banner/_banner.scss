@@ -1,0 +1,40 @@
+.banner-wrapper {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    filter: drop-shadow($boxShadow);
+    background: url(/dist/images/banner_cbg.jpg) center/cover fixed no-repeat;
+    
+    @include breakpoint-up(medium){
+        align-items: center;
+    }
+}
+
+.banner-card {
+    flex: 0 0 90%;
+    text-align: center;
+    padding: 6.25rem 0;
+    outline: 2px solid $mainYellow;
+    outline-offset: -.625rem;
+    background: rgba(0,0,0, .4);
+
+    @include breakpoint-up(large){
+        flex: 0 0 70%;
+    }
+
+    & h2 {
+        color: $mainYellow;
+        text-shadow: $textShadow;
+    }
+
+    & h3 {
+        color: $white;
+        text-transform: uppercase;
+        margin: 1rem;
+        line-height: 1.7;
+        text-shadow: $textShadow;
+        letter-spacing: 2px;
+    }
+}

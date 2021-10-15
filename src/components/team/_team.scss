@@ -1,0 +1,80 @@
+.team {
+    height: 100%;
+    padding: 2rem 1rem;
+    background: url(/dist/images/team-bcg.jpg) top/cover fixed no-repeat;;
+
+    & h2 {
+        color: $mainYellow;
+        text-shadow: $textShadow;
+        text-align: center;
+        margin: 1rem;
+    
+        @include breakpoint-up(large){
+            margin: 3rem;
+        }
+    }
+}
+
+.team-wrapper {
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap:  2rem;
+
+    @include breakpoint-up(medium){
+        grid-template-columns: repeat(2, 1fr);
+        margin: 0 3rem;
+    }
+}
+
+.team-member {
+    margin: 0 auto;
+    width: 20rem;
+    height: 17rem;
+    background: url(/dist/images/metal-background.jpg) center/cover no-repeat;
+    border-radius: .5rem;
+    box-shadow: .25rem .25rem .5rem black;
+    padding: .5rem;
+
+    & img {
+        display: block;
+        width: 50%;
+        margin: 0 auto;
+        border-radius: 50%;
+        box-shadow: .25rem .25rem .5rem black;
+        cursor: pointer;
+        transition: transform 1s ease-in-out;
+    
+        &:hover {
+            transform: rotateY(360deg);
+        }
+    }
+}
+
+.img-footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: $white;
+    text-shadow: $textShadow;
+    padding: .5rem;
+
+    & h4, h5 {
+        margin-bottom: 1rem;
+    }
+}
+
+.soc-link {
+    color: white;
+    text-shadow: $textShadow;
+    margin: .5rem 1.5rem 0 1.5rem;
+    font-size: 1.5rem;
+    transition: transform .5s ease-in-out;
+
+    &:hover {
+        color: $mainYellow;
+        transform: translateY(-.625rem);
+    }
+}
