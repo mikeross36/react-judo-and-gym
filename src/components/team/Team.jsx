@@ -17,11 +17,11 @@ export default function Team(){
                                 <h4>{name}</h4>
                                 <h5>{title}</h5>
                                 <div className="social-icons">
-                                    {socialIcons.map(function(socIcon, index){
-                                        const {url, icon} = socIcon;
+                                    {socialIcons.map(function(socIcon){
+                                        const {id, url, icon} = socIcon;
                                         return (
                                             <a 
-                                                key={index}
+                                                key={id}
                                                 href={url} 
                                                 className="soc-link">
                                                 {icon}

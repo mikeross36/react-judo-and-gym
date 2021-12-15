@@ -7,15 +7,15 @@ export default function Offers(){
             <h1>Naše usluge</h1>
             <div className="offers-wrapper">
                 {offers.map(function(offer){
-                    const {id, url, img, text} = offer;
+                    const {id, img, text} = offer;
                     return (
                         <article
                             key={id}
                             className="offer">
-                            <a href={url}>
+                            <div>
                                 <img src={img} alt="offer"/>
                                 <p>{text}</p>
-                            </a>
+                            </div>
                         </article>
                     )
                 })}

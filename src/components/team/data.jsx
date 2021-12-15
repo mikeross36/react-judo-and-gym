@@ -1,5 +1,5 @@
 import React from "react"
-
+import nextId from "react-id-generator"
 import {FaTwitter, FaFacebook, FaInstagram} from "react-icons/fa"
 import darjan from "../../images/dasha.jpg"
 import deki from "../../images/deki.jpg"
@@ -8,47 +8,47 @@ import mikica from "../../images/mikica.jpg"
 
 export const teamMembers = [
     {
-        id: 1,
+        id: nextId(),
         img: darjan,
         name: "Darjan Ničić",
         title: "Gym manager",
         socialIcons: [
-            {url:"https://twitter.com/login?lang=en", icon: <FaTwitter/>},
-            {url:"https://www.facebook.com/", icon: <FaFacebook/>},
-            {url:"https://www.instagram.com/accounts/login/", icon: <FaInstagram/>}
+            {id: nextId(), url:"https://twitter.com/login?lang=en", icon: <FaTwitter/>},
+            {id: nextId(), url:"https://www.facebook.com/", icon: <FaFacebook/>},
+            {id: nextId(), url:"https://www.instagram.com/accounts/login/", icon: <FaInstagram/>}
         ]
     },
     {
-        id: 2,
+        id: nextId(),
         img: deki,
         name: "Deki Ničić",
         title: "Generalni direktor",
         socialIcons: [
-            {url:"https://twitter.com/login?lang=en", icon: <FaTwitter/>},
-            {url:"https://www.facebook.com/", icon: <FaFacebook/>},
-            {url:"https://www.instagram.com/accounts/login/", icon: <FaInstagram/>}
+            {id: nextId(), url:"https://twitter.com/login?lang=en", icon: <FaTwitter/>},
+            {id: nextId(), url:"https://www.facebook.com/", icon: <FaFacebook/>},
+            {id: nextId(), url:"https://www.instagram.com/accounts/login/", icon: <FaInstagram/>}
         ]
     },
     {
-        id: 3,
+        id: nextId(),
         img: vesna,
         name: "Vesna Ničić",
         title: "Project manager",
         socialIcons: [
-            {url:"https://twitter.com/login?lang=en", icon: <FaTwitter/>},
-            {url:"https://www.facebook.com/", icon: <FaFacebook/>},
-            {url:"https://www.instagram.com/accounts/login/", icon: <FaInstagram/>}
+            {id: nextId(), url:"https://twitter.com/login?lang=en", icon: <FaTwitter/>},
+            {id: nextId(), url:"https://www.facebook.com/", icon: <FaFacebook/>},
+            {id: nextId(), url:"https://www.instagram.com/accounts/login/", icon: <FaInstagram/>}
         ]
     },
     {
-        id: 4,
+        id: nextId(),
         img: mikica,
         name: "Mikica Ničić",
         title: "Predsjednik",
         socialIcons: [
-            {url:"https://twitter.com/login?lang=en", icon: <FaTwitter/>},
-            {url:"https://www.facebook.com/", icon: <FaFacebook/>},
-            {url:"https://www.instagram.com/accounts/login/", icon: <FaInstagram/>}
+            {id: nextId(), url:"https://twitter.com/login?lang=en", icon: <FaTwitter/>},
+            {id: nextId(), url:"https://www.facebook.com/", icon: <FaFacebook/>},
+            {id: nextId(), url:"https://www.instagram.com/accounts/login/", icon: <FaInstagram/>}
         ]
     }
 ]

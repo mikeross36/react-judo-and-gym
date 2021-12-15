@@ -1,6 +1,9 @@
 import React from "react"
-import {useSpring, animated} from "react-spring"
-import {FaTrash, FaChevronUp,FaChevronDown} from "react-icons/fa"
+import {useRef, useCallback, useEffect} from "react"
+import {FaTrash, FaChevronUp, FaChevronDown} from "react-icons/fa"
+import {motion} from "framer-motion"
+import {modalVariants} from "./cartVariants"
+import useEmptyClick from "../../../hooks/useEmtyClick"
 
 export default function Cart({
     showCart,
@@ -10,58 +13,76 @@ export default function Cart({
     increase,
     decrease,
     cartMoneyTotal,
-    clearCart}){
+    emptyCart}){
+    const cartRef = useRef(null)
+    useEmptyClick(cartRef, function(){
+        closeCart()
+    });
 
-    const animation = useSpring({
-        config: {duration: 400},
-        opacity: showCart ? 1 : 0,
-        transform: showCart ? "translateY(0%)" : "translateY(-100%)",
-    })
+    const keyPress = useCallback(function(e){
+        if(e.key === "Escape" && showCart){
+            closeCart()
+        }
+    },[showCart, closeCart])
+
+    useEffect(function(){
+        document.addEventListener("keydown", keyPress)
+        return function(){
+            document.removeEventListener("keydown", keyPress)
+        }
+    },[keyPress])
 
     return (
         <>
             {showCart && (
-                <div className="cart-layout">
-                    <animated.div style={animation}>
+                <div className="cart-layout" ref={cartRef} data-testid="cart">
+                    <motion.div
+                        variants={modalVariants}
+                        initial="hidden"
+                        animate="visible"
+                        exit="exit"
+                    >
                         <div className="cart-wrapper">
                             <button 
-                                className="close-cart"
-                                onClick={closeCart}>zatvori</button>
+                                onClick={closeCart}
+                                className="close-cart">
+                                zatvori
+                            </button>
                             <dd className="cart-header">tvoja korpa</dd>
                             {cartItems.length === 0 ? (
-                                <div className="empty-cart">korpa je prazna</div>
+                                <div className="empty-cart" data-testid="empty-cart">korpa je prazna</div>
                             ) : (
                                 cartItems.map(function(product){
                                     const {id, image, title, price, quantity} = product;
                                     return (
                                         <article key={id} className="cart-item">
-                                            <img src={image} alt={title} />
+                                            <img src={image} alt="cart item" />
                                             <div className="cart-column">
                                                 <span className="title">{title}</span>
                                                 <span className="price">{price}</span>
-                                                <span 
-                                                    className="remove-item"
+                                                <button 
                                                     onClick={function(){
                                                         removeFromCart(id)
-                                                    }}>
-                                                    <FaTrash />
-                                                </span>
+                                                    }}
+                                                    className="remove-item">
+                                                    <FaTrash className="remove-btn"/>
+                                                </button>
                                             </div>
                                             <div className="cart-column">
                                                 <button 
-                                                    className="quant-btn"
                                                     onClick={function(){
                                                         increase(id)
-                                                    }}>
-                                                    <FaChevronUp className="increase" />
+                                                    }}
+                                                    className="quant-btn">
+                                                    <FaChevronUp className="increase"/>
                                                 </button>
                                                 <span className="quantity">{quantity}</span>
                                                 <button 
-                                                    className="quant-btn"
                                                     onClick={function(){
                                                         decrease(id)
-                                                    }}>
-                                                    <FaChevronDown className="decrease" />
+                                                    }}
+                                                    className="quant-btn">
+                                                    <FaChevronDown className="decrease"/>
                                                 </button>
                                             </div>
                                         </article>
@@ -73,15 +94,14 @@ export default function Cart({
                                     Ukupno: <span>{cartMoneyTotal} €</span>
                                 </div>
                                 {cartItems.length !== 0 && (
-                                    <button 
-                                        className="clear-cart"
-                                        onClick={clearCart}>
+                                    <button className="clear-cart"
+                                        onClick={emptyCart}>
                                         isprazni korpu
                                     </button>
                                 )}
                             </footer>
                         </div>
-                    </animated.div>
+                    </motion.div>
                 </div>
             )}
         </>

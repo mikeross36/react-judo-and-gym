@@ -1,29 +1,30 @@
 import React from "react"
+import nextId from "react-id-generator"
 import {FaFacebook, FaInstagram, FaGooglePlus} from "react-icons/fa"
 
 export const navLinks = [
     {
-        id: 1,
+        id: nextId(),
         url: "#home",
         text: "home"
     },
     {
-        id: 2,
+        id: nextId(),
         url: "#offers",
         text: "usluge"
     },
     {
-        id: 3,
+        id: nextId(),
         url: "#about",
         text: "o nama"
     },
     {
-        id: 4,
+        id: nextId(),
         url: "#shop",
         text: "prodaja"
     },
     {
-        id: 5,
+        id: nextId(),
         url: "#contact",
         text: "kontakt"
     }
@@ -31,17 +32,17 @@ export const navLinks = [
 
 export const navIcons = [
     {
-        id: 1,
+        id: nextId(),
         url: "https://sr-rs.facebook.com/JudoNS2008",
         icon:  <FaFacebook />
     },
     {
-        id: 2,
+        id: nextId(),
         url: "https://www.instagram.com/",
         icon: <FaInstagram />
     },
     {
-        id: 3,
+        id: nextId(),
         url: "https://bit.ly/2TGnlJc",
         icon: <FaGooglePlus />
     }
